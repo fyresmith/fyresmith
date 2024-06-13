@@ -1011,24 +1011,54 @@
                 const hero = document.getElementById("hero");
                 const imgWidth = 2000; // Width of the image
                 const imgHeight = 1124; // Height of the image
-                const centerX = 2020; // x coordinate of the point to center
-                const centerY = 0; // y coordinate of the point to center
+                const centerX = 2020; // x coordinate of the point to center the person
+                const centerY = 562; // y coordinate of the point to center
 
                 const windowWidth = window.innerWidth;
                 const windowHeight = window.innerHeight;
 
-                // Calculate the percentage positions
-                const xPercent = ((centerX - windowWidth / 2) / imgWidth) * 100;
-                const yPercent =
-                    ((centerY - windowHeight / 2) / imgHeight) * 100;
+                if (windowWidth < 750) {
+                    // Calculate the percentage positions
+                    // const xPercent = ((centerX - windowWidth / 2) / imgWidth) * 100;
+                    // const yPercent = ((centerY - windowHeight / 2) / imgHeight) * 100;
 
-                // Ensure values are within bounds
-                const adjustedXPercent = Math.max(0, Math.min(100, xPercent));
-                const adjustedYPercent = Math.max(0, Math.min(100, yPercent));
+                    // Ensure values are within bounds
+                    // const adjustedXPercent = Math.max(0, Math.min(100, xPercent));
+                    // const adjustedYPercent = Math.max(0, Math.min(100, yPercent));
 
-                // Update the background-position property
-                hero.style.backgroundPosition = `${adjustedXPercent}% ${adjustedYPercent}%`;
+                    // Update the background-position property
+                    // hero.style.backgroundPosition = `${adjustedXPercent}% ${adjustedYPercent}%`;
+                    const test = 90;
+                    console.log(windowWidth);
+                    hero.style.backgroundPosition = `${test}% 0%`;
+                } else {
+                    // Reset to default background position for larger screens
+                    hero.style.backgroundPosition = 'top right';
+                }
             }
+            
+            // function centerBackground() {
+            //     const hero = document.getElementById("hero");
+            //     const imgWidth = 2000; // Width of the image
+            //     const imgHeight = 1124; // Height of the image
+            //     const centerX = 2020; // x coordinate of the point to center
+            //     const centerY = 0; // y coordinate of the point to center
+
+            //     const windowWidth = window.innerWidth;
+            //     const windowHeight = window.innerHeight;
+
+            //     // Calculate the percentage positions
+            //     const xPercent = ((centerX - windowWidth / 2) / imgWidth) * 100;
+            //     const yPercent =
+            //         ((centerY - windowHeight / 2) / imgHeight) * 100;
+
+            //     // Ensure values are within bounds
+            //     const adjustedXPercent = Math.max(0, Math.min(100, xPercent));
+            //     const adjustedYPercent = Math.max(0, Math.min(100, yPercent));
+
+            //     // Update the background-position property
+            //     hero.style.backgroundPosition = `${adjustedXPercent}% ${adjustedYPercent}%`;
+            // }
 
             // Call centerBackground on window resize and load events
             window.addEventListener("resize", centerBackground);
